@@ -4,13 +4,13 @@ import com.budi.setiawan.core.domain.model.Game
 
 class GameFactory {
     companion object Factory {
-        private fun makeGame(): Game =
+        fun makeGame(): Game =
             Game(
                 DataFactory.randomInt(),
                 DataFactory.randomString(),
                 DataFactory.randomString(),
                 DataFactory.randomString(),
-                DataFactory.randomDouble().toFloat(),
+                DataFactory.randomDouble(),
                 DataFactory.randomInt(),
                 DataFactory.randomInt(),
                 DataFactory.randomInt(),

@@ -1,7 +1,6 @@
 package com.budi.setiawan.core.data.source.local
 
 import com.budi.setiawan.core.data.source.local.entity.GameEntity
-import com.budi.setiawan.core.data.source.local.mapper.GameMapper
 import com.budi.setiawan.core.data.source.local.room.GameDao
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -10,7 +9,6 @@ import javax.inject.Singleton
 @Singleton
 class LocalDataSource @Inject constructor(
     private val gameDao: GameDao,
-    val mapper: GameMapper
 ){
 
     fun getAllGames() : Flow<List<GameEntity>> = gameDao.getAllGames()

@@ -30,7 +30,7 @@ class FavoriteViewModelTest {
     val coroutineScope = MainCoroutineScope()
 
     private val fakeGameList = GameFactory.makeGameList(10)
-    private val favoritedGames = fakeGameList.filter { game -> game.isFavorite }
+    private val favoriteGame = fakeGameList.filter { game -> game.isFavorite }
     private lateinit var favoriteViewModel: FavoriteViewModel
 
     @Mock
@@ -45,7 +45,7 @@ class FavoriteViewModelTest {
     @Before
     fun setUp() {
         val flow: Flow<List<Game>> = flow {
-            emit(favoritedGames)
+            emit(favoriteGame)
         }
 
         Mockito.`when`(gameUseCase.getFavoriteGames()).thenReturn(flow)
@@ -60,6 +60,6 @@ class FavoriteViewModelTest {
 
         Mockito.verify(gamesObserver).onChanged(captorGames.capture())
         Assert.assertNotNull(captorGames.value)
-        Assert.assertEquals(favoritedGames, captorGames.value)
+        Assert.assertEquals(favoriteGame, captorGames.value)
     }
 }

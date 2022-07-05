@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.budi.setiawan.core.ui.FavoriteAdapter
+import com.budi.setiawan.favorite.FavoriteFragmentDirections
 import com.budi.setiawan.favorite.databinding.FragmentFavoriteBinding
 import com.budi.setiawan.favorite.di.DaggerFavoriteComponent
 import com.budi.setiawan.gamein.di.FavoriteModuleDependencies
@@ -56,8 +57,8 @@ class FavoriteFragment : Fragment() {
 
             val favoriteAdapter = FavoriteAdapter()
             favoriteAdapter.setOnItemClickListener {
-//                val favoriteDirections = FavoriteFragmentDirections.actionFavoriteFragmentToDetailGameActivity(it.id)
-//                findNavController().navigate(favoriteDirections)
+                val favoriteDirections = FavoriteFragmentDirections.actionFavoriteFragmentToDetailGameActivity(it.id)
+                findNavController().navigate(favoriteDirections)
             }
 
             favoriteViewModel.favoriteGames.observe(viewLifecycleOwner) {

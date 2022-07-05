@@ -71,9 +71,9 @@ class DetailGameActivity : AppCompatActivity() {
                                 fab.setOnClickListener {
                                     statusFavorite = !statusFavorite
                                     if(statusFavorite){
-                                        Toast.makeText(this@DetailGameActivity,"Game has been successfully removed from favorites", Toast.LENGTH_LONG).show()
-                                    }else{
                                         Toast.makeText(this@DetailGameActivity,"Game successfully added to favorites", Toast.LENGTH_LONG).show()
+                                    }else{
+                                        Toast.makeText(this@DetailGameActivity,"Game has been successfully removed from favorites", Toast.LENGTH_LONG).show()
                                     }
                                     detailViewModel.setFavoriteGames(game, statusFavorite)
                                     setStatusFavorite(statusFavorite)
@@ -93,9 +93,9 @@ class DetailGameActivity : AppCompatActivity() {
 
     private fun setStatusFavorite(statusFavorite: Boolean){
         if(statusFavorite){
-            binding.fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_baseline_favorite_24))
-        }else{
             binding.fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_baseline_favorite_border_24))
+        }else{
+            binding.fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_baseline_favorite_24))
         }
     }
 

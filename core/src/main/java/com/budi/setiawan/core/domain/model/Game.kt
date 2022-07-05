@@ -9,7 +9,7 @@ data class Game(
     val name: String,
     val released: String,
     val background_image: String,
-    val rating: Float,
+    val rating: Double,
     val ratings_count: Int,
     val reviews_count: Int,
     val added: Int,
