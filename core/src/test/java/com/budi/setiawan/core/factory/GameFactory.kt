@@ -67,7 +67,7 @@ class GameFactory {
                 FakerFactory.fakerString(),
                 FakerFactory.fakerString(),
                 FakerFactory.fakerString(),
-                FakerFactory.fakerDouble(),
+                FakerFactory.fakerDouble().toFloat(),
                 FakerFactory.fakerInt(),
                 FakerFactory.fakerInt(),
                 FakerFactory.fakerInt(),
