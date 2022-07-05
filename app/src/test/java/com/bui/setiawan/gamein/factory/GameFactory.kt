@@ -10,7 +10,7 @@ class GameFactory {
                 DataFactory.randomString(),
                 DataFactory.randomString(),
                 DataFactory.randomString(),
-                DataFactory.randomDouble(),
+                DataFactory.randomDouble().toFloat(),
                 DataFactory.randomInt(),
                 DataFactory.randomInt(),
                 DataFactory.randomInt(),
