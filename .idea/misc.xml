@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Dicoding/projec-submissions-expert/Gamein/gamein/app/src/main/res/layout/fragment_home.xml" value="0.11458333333333333" />
+        <entry key="..\:/Dicoding/projec-submissions-expert/Gamein/gamein/core/src/main/res/drawable/ic_baseline_date_range_24.xml" value="0.1" />
+        <entry key="..\:/Dicoding/projec-submissions-expert/Gamein/gamein/core/src/main/res/drawable/ic_baseline_star_rate_24.xml" value="0.1" />
+        <entry key="..\:/Dicoding/projec-submissions-expert/Gamein/gamein/core/src/main/res/layout/item_favorite.xml" value="0.16666666666666666" />
+        <entry key="..\:/Dicoding/projec-submissions-expert/Gamein/gamein/core/src/main/res/layout/item_games.xml" value="0.22" />
+        <entry key="..\:/Dicoding/projec-submissions-expert/Gamein/gamein/core/src/main/res/layout/item_newest_games.xml" value="0.16666666666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="EntryPointsManager">
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="dagger.Binds" />
+      <item index="1" class="java.lang.String" itemvalue="dagger.Binds" />
+      <item index="2" class="java.lang.String" itemvalue="dagger.Module" />
+      <item index="3" class="java.lang.String" itemvalue="dagger.Module" />
+    </list>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

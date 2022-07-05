@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/game_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.budi.setiawan.gamein.home.HomeFragment"
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_detailGameActivity"
+            app:destination="@id/detailGameActivity" />
+    </fragment>
+    <!--suppress AndroidDomInspection -->
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.budi.setiawan.favorite.FavoriteFragment"
+        android:label="FavoriteFragment">
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailGameActivity"
+            app:destination="@id/detailGameActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/detailGameActivity"
+        android:name="com.budi.setiawan.gamein.detail.DetailGameActivity"
+        android:label="activity_detail_game"
+        tools:layout="@layout/activity_detail_game">
+        <argument
+            android:name="id"
+            app:argType="integer"/>
+    </activity>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.budi.setiawan.gamein.setting.SettingFragment"
+        android:label="SettingFragment" />
+
+</navigation>
