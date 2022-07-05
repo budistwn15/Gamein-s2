@@ -5,20 +5,20 @@ import com.budi.setiawan.core.domain.model.Game
 import javax.inject.Inject
 
 open class GameMapper @Inject constructor() : DataMapper<GameEntity, Game> {
-    override fun mapFromEntity(input: GameEntity): Game =
+    override fun mapFromEntity(entity: GameEntity): Game =
         Game(
-            id = input.id,
-            name = input.name,
-            released = input.released,
-            background_image = input.background_image,
-            rating = input.rating,
-            ratings_count = input.ratings_count,
-            reviews_count = input.reviews_count,
-            added = input.added,
-            genres = input.genres,
-            description = input.description ?: "",
-            website = input.website ?: "",
-            isFavorite = input.isFavorite
+            id = entity.id,
+            name = entity.name,
+            released = entity.released,
+            background_image = entity.background_image,
+            rating = entity.rating,
+            ratings_count = entity.ratings_count,
+            reviews_count = entity.reviews_count,
+            added = entity.added,
+            genres = entity.genres,
+            description = entity.description ?: "",
+            website = entity.website ?: "",
+            isFavorite = entity.isFavorite
         )
 
     override fun mapToEntity(model: Game): GameEntity =
