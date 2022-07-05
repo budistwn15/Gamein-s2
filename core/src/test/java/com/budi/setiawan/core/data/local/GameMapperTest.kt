@@ -1,9 +1,9 @@
 package com.budi.setiawan.core.data.local
 
 import com.budi.setiawan.core.data.source.local.entity.GameEntity
+import com.budi.setiawan.core.data.source.local.mapper.GameMapper
 import com.budi.setiawan.core.domain.model.Game
 import com.budi.setiawan.core.factory.GameFactory
-import com.budi.setiawan.core.utils.DataMapper
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -12,11 +12,11 @@ import org.junit.runners.JUnit4
 
 @RunWith(JUnit4::class)
 class GameMapperTest {
-    private lateinit var gameMapper: DataMapper
+    private lateinit var gameMapper: GameMapper
 
     @Before
     fun setUp() {
-        gameMapper = DataMapper
+        gameMapper = GameMapper()
     }
 
     @Test
@@ -31,7 +31,7 @@ class GameMapperTest {
     @Test
     fun mapToEntity() {
         val game = GameFactory.makeGame()
-        val gameEntity = gameMapper.mapDomainToEntity(game)
+        val gameEntity = gameMapper.mapToEntity(game)
 
         assertGameDataEquality(gameEntity, game)
     }
@@ -39,7 +39,7 @@ class GameMapperTest {
     @Test
     fun mapFromEntities() {
         val gameEntities = GameFactory.makeGameEntities(2)
-        val gameList = gameMapper.mapEntitiesToDomain(gameEntities)
+        val gameList = gameMapper.mapFromEntities(gameEntities)
 
         repeat(gameEntities.size) {
             assertGameDataEquality(gameEntities[it], gameList[it])
