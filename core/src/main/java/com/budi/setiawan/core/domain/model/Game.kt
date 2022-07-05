@@ -1,7 +1,7 @@
 package com.budi.setiawan.core.domain.model
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Game(
@@ -9,7 +9,7 @@ data class Game(
     val name: String,
     val released: String,
     val background_image: String,
-    val rating: Double,
+    val rating: Float,
     val ratings_count: Int,
     val reviews_count: Int,
     val added: Int,

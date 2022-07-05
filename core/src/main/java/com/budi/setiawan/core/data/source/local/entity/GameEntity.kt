@@ -20,7 +20,7 @@ data class GameEntity(
     var background_image: String,
 
     @ColumnInfo(name = "rating")
-    var rating: Double,
+    var rating: Float,
 
     @ColumnInfo(name = "ratings_count")
     val ratings_count: Int,

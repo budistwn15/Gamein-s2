@@ -9,9 +9,6 @@ import org.junit.runners.JUnit4
 @RunWith(JUnit4::class)
 class GameResponseTest {
 
-    /**
-     * Test an equation for object symmetry
-     */
     @Test
     fun testEquals() {
         val gameResponse1 = GameResponse(

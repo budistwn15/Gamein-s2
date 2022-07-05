@@ -9,9 +9,6 @@ import org.junit.runners.JUnit4
 @RunWith(JUnit4::class)
 class GameEntityTest {
 
-    /**
-     * Test an equation for object symmetry
-     */
     @Test
     fun testEqualsSymetric() {
         val game1 = GameEntity(
@@ -19,7 +16,7 @@ class GameEntityTest {
             "Name",
             "2022-07-05",
             "Background-Image",
-            4.8,
+            4.8f,
             100,
             80,
             800,
@@ -33,7 +30,7 @@ class GameEntityTest {
             "Name",
             "2022-07-05",
             "Background-Image",
-            4.8,
+            4.8f,
             100,
             80,
             800,
