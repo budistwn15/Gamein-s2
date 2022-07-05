@@ -7,7 +7,6 @@ import com.budi.setiawan.core.data.source.remote.response.GameResponse
 import com.budi.setiawan.core.domain.model.Game
 import com.budi.setiawan.core.domain.repository.IGameRepository
 import com.budi.setiawan.core.utils.AppExecutors
-import com.budi.setiawan.core.utils.DataMapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -23,7 +22,7 @@ class GameRepository @Inject constructor(
         object : NetworkBoundResource<List<Game>, List<GameResponse>>(){
             override fun loadFromDB(): Flow<List<Game>> {
                 return localDataSource.getAllGames().map {
-                    DataMapper.mapEntitiesToDomain(it)
+                    localDataSource.mapper.mapFromEntities(it)
                 }
             }
 
@@ -32,8 +31,9 @@ class GameRepository @Inject constructor(
             override suspend fun createCall(): Flow<ApiResponse<List<GameResponse>>> = remoteDataSource.getAllGames()
 
             override suspend fun saveCallResult(data: List<GameResponse>) {
-                val games = DataMapper.mapResponsesToEntities(data)
-                localDataSource.insertGameAll(games)
+                return remoteDataSource.mapper.mapRemoteToEntities(data).let {
+                    localDataSource.insertGameAll(it)
+                }
             }
         }.asFlow()
 
@@ -41,7 +41,7 @@ class GameRepository @Inject constructor(
         object: NetworkBoundResource<Game, GameResponse>(){
             override fun loadFromDB(): Flow<Game> {
                 return localDataSource.getGameById(id).map {
-                    DataMapper.mapFromEntity(it)
+                    localDataSource.mapper.mapFromEntity(it)
                 }
             }
 
@@ -52,19 +52,20 @@ class GameRepository @Inject constructor(
             }
 
             override suspend fun saveCallResult(data: GameResponse) {
-                val game = DataMapper.mapResponsesToEntity(data)
-                localDataSource.insertGame(game)
+                return remoteDataSource.mapper.mapRemoteToEntity(data).let {
+                    localDataSource.insertGame(it)
+                }
             }
         }.asFlow()
 
     override fun getFavoriteGames(): Flow<List<Game>> {
         return localDataSource.getFavoriteGames().map {
-            DataMapper.mapEntitiesToDomain(it)
+            localDataSource.mapper.mapFromEntities(it)
         }
     }
 
     override fun setFavoriteGames(game: Game, state: Boolean) {
-        val gameEntity = DataMapper.mapDomainToEntity(game)
+        val gameEntity = localDataSource.mapper.mapToEntity(game)
         appExecutors.diskIO().execute{
             localDataSource.setFavoriteGames(gameEntity,state)
         }

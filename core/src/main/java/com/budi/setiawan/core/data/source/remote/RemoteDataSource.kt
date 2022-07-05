@@ -1,6 +1,7 @@
 package com.budi.setiawan.core.data.source.remote
 
 import android.util.Log
+import com.budi.setiawan.core.data.source.remote.mapper.GameRemoteMapper
 import com.budi.setiawan.core.data.source.remote.network.ApiResponse
 import com.budi.setiawan.core.data.source.remote.network.ApiService
 import com.budi.setiawan.core.data.source.remote.response.GameResponse
@@ -12,7 +13,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class RemoteDataSource @Inject constructor(private val apiService: ApiService){
+class RemoteDataSource @Inject constructor(private val apiService: ApiService, val mapper: GameRemoteMapper){
     suspend fun getAllGames(): Flow<ApiResponse<List<GameResponse>>>{
         return flow {
             try {

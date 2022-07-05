@@ -16,7 +16,7 @@
     <!--suppress AndroidDomInspection -->
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="com.budi.setiawan.favorite.FavoriteFragment"
+        android:name="com.budi.setiawan.favorite.favorite.FavoriteFragment"
         android:label="FavoriteFragment">
         <action
             android:id="@+id/action_favoriteFragment_to_detailGameActivity"

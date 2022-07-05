@@ -16,7 +16,7 @@ data class GameResponse(
     val background_image: String,
 
     @field: SerializedName("rating")
-    val rating: Double,
+    val rating: Float,
 
     @field: SerializedName("ratings_count")
     val ratings_count: Int,
