@@ -1,5 +1,6 @@
 package com.budi.setiawan.favorite.favorite
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,13 +28,13 @@ class FavoriteFragment : Fragment() {
         factory
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
         DaggerFavoriteComponent.builder()
-            .context(requireContext())
+            .context(context)
             .appDependencies(
                 EntryPointAccessors.fromApplication(
-                    requireContext(),
+                    context.applicationContext,
                     FavoriteModuleDependencies::class.java
                 )
             )
@@ -74,8 +75,8 @@ class FavoriteFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
+    override fun onDestroy() {
+        super.onDestroy()
         _binding = null
     }
 }
