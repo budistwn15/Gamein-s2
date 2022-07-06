@@ -1,5 +1,6 @@
 package com.budi.setiawan.core.ui
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +14,7 @@ class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.ListViewHolder>() {
     private var listData: MutableList<Game> = mutableListOf()
     private var onItemClick: ((Game) -> Unit)? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(newListData: List<Game>){
         with(this.listData){
             clear()
